@@ -16,7 +16,7 @@ export class Company {
     @Column({ name: "address"})
     address: string; 
 
-    @ManyToMany(() => Employee, (employee) => employee.id)
+    @ManyToMany(() => Employee, (employee) => employee.companies)
     @JoinTable({
         name: "company_employee",
         joinColumn: {

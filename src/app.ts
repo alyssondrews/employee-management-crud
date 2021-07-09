@@ -3,7 +3,6 @@ import {createConnection} from "typeorm";
 import express = require('express');
 import routes from './routes';
 
-// import * as cors from "cors";
 import {Server} from "http";
 
 if (process.env.NODE_ENV !== "test") {
@@ -15,7 +14,6 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 const app = express();
-// app.use(cors());
 app.use(express.json());
 app.use(routes);
 

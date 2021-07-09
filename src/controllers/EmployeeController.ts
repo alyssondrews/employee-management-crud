@@ -1,20 +1,19 @@
 import { Request, Response } from "express";
 import { ProcessError } from "../utils/processError";
 import EmployeeService from "../services/EmployeeService";
-import { DeleteResult } from "typeorm";
 
 export default class EmployeeController {
     
 
     public async create(req: Request, res: Response): Promise<Response | void> {
-        try {
+        // try {
             const employeeService = new EmployeeService();
             const employee = await employeeService.create(req.body);
             
             return res.status(200).json(employee);
-        } catch (err) {
-            return ProcessError(res, err);
-        }
+        // } catch (err) {
+        //     return ProcessError(res, err);
+        // }
     }
     
     public async findById(req: Request, res: Response): Promise<Response> {

@@ -19,7 +19,7 @@ export class Employee {
     @Column({ name: "address"})
     address: string; 
     
-    @ManyToMany(() => Company, (company) => company.id)
+    @ManyToMany(() => Company, (company) => company.employees)
     companies?: Company[];
 
 }

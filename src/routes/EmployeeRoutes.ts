@@ -10,5 +10,6 @@ EmployeeRoutes.post("/", employeeController.create);
 EmployeeRoutes.put("/:id", employeeController.update)
 EmployeeRoutes.delete("/:id",  employeeController.deleteById);
 EmployeeRoutes.get("/", employeeController.findAll);
+EmployeeRoutes.get("/:id", employeeController.findById)
 
 export default EmployeeRoutes;
