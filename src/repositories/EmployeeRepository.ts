@@ -20,12 +20,12 @@ export class EmployeeRepository {
     }
 
     public async findAll(): Promise<Employee[]> {
-        const employee = await this.employeeRepository.createQueryBuilder('e').leftJoinAndSelect('e.companies', 'ec').getMany();
+        const employee = await this.employeeRepository.createQueryBuilder('e').leftJoinAndSelect('e.company', 'ec').getMany();
         return employee;
     }
 
     public async findById(id: string): Promise<Employee | undefined> {
-        const employee = await this.employeeRepository.createQueryBuilder('e').leftJoinAndSelect('e.companies', 'ec').where(`e.id = ${id}`).getOne();
+        const employee = await this.employeeRepository.createQueryBuilder('e').leftJoinAndSelect('e.company', 'ec').where(`e.id = ${id}`).getOne();
         return employee;
     }
 

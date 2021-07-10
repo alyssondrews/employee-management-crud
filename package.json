@@ -8,6 +8,7 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "@types/jest": "^26.0.24",
       "body-parser": "^1.18.1",
       "express": "^4.15.4",
       "pg": "^8.4.0",
