@@ -27,7 +27,7 @@ Para este projeto foram utilizadas as seguintes tecnologias.
 
 <h2 align="center"> Instalação </h2>
 
-Inicialmente o projeto já deve ter sido clonado em sua maquina:
+Inicialmente o projeto deve ser clonado em sua maquina:
   
     $ git clone https://github.com/AlyssonDrews/employee-management-crud
    
@@ -45,6 +45,8 @@ Subindo o banco de dados, deve-se entrar na pasta raíz do projeto e executar o 
 
 
 <h2 align="center"> Executando o projeto </h2>
+
+Antes de tudo devemos fazer algumas alterações no arquivo [.env](.env) baseado nas informações que foram utilizadas para iniciar o banco de dados, e, se for o caso da PORT 3333 estar em uso, deve ser trocada para uma liberada.
 
 Para que a API seja executada, entre na pasta raíz e execute os seguintes comandos no seu terminal
  
