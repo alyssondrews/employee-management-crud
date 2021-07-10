@@ -8,9 +8,9 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
-      "@types/jest": "^26.0.24",
       "body-parser": "^1.18.1",
       "express": "^4.15.4",
+      "joi": "^17.4.0",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.10",
       "typeorm": "^0.2.34"
