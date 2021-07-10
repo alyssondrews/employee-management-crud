@@ -50,4 +50,8 @@ Para que a API seja executada, entre na pasta raíz e execute os seguintes coman
  
     $ npm install
     $ npm start
+    
+<h2 align="center"> Documentação </h2>
+
+A documentação para uso da API, incluindo chamadas e exemplos estão disponíveis no [Swagger](docs/swagger.json)
 
