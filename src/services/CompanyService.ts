@@ -26,13 +26,14 @@ export default class CompanyService {
   }
 
   public async findAll(): Promise<Company[] | undefined> {
-    const companys = await this.companyRepository.findAll();
-
-    return companys;
+    const companies = await this.companyRepository.findAll();
+    if (companies.length == 0) throw {status: errorStatus.bad_request, message: errorMessage.could_not_find}
+    return companies;
   }
 
   public async update(id: string, data: ICreateCompanyDTO): Promise<Company | undefined> {
     const company = await this.companyRepository.findById(id);
+    if(!company) throw { status: errorStatus.bad_request, message: errorMessage.id_not_found}
     const assign = Object.assign(company, data);
     await this.companyRepository.save(assign);
     const companyUpdated = await this.companyRepository.findById(id);
@@ -40,6 +41,8 @@ export default class CompanyService {
   }
 
   public async delete(id: string): Promise<DeleteResult> {
-    return await this.companyRepository.deleteById(id);
+    const company =  await this.companyRepository.deleteById(id);
+    if (company.affected == 0) throw { status: errorStatus.bad_request, message: errorMessage.id_not_found}
+    return company
   }
 }

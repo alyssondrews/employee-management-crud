@@ -6,14 +6,14 @@ export default class EmployeeController {
     
 
     public async create(req: Request, res: Response): Promise<Response | void> {
-        // try {
+        try {
             const employeeService = new EmployeeService();
             const employee = await employeeService.create(req.body);
             
             return res.status(200).json(employee);
-        // } catch (err) {
-        //     return ProcessError(res, err);
-        // }
+        } catch (err) {
+            return ProcessError(res, err);
+        }
     }
     
     public async findById(req: Request, res: Response): Promise<Response> {
@@ -53,7 +53,7 @@ export default class EmployeeController {
             const { id } = req.params;
             const employeeService = new EmployeeService();
             const employee = await employeeService.delete(id)
-            return res.status(200).json(employee)
+            return res.status(200).json({message: "Sucessfully deleted", employee})
         } catch (err) {
             return ProcessError(res, err)
         }

@@ -31,8 +31,8 @@ export default class CompanyController {
     public async findAll(_req: Request, res: Response): Promise<Response> {
         try {
             const companyService = new CompanyService();
-            const companys = await companyService.findAll();
-            return res.status(200).json(companys);
+            const companies = await companyService.findAll();
+            return res.status(200).json(companies);
         } catch (err) {
             return ProcessError(res, err);
         }
@@ -54,7 +54,7 @@ export default class CompanyController {
             const { id } = req.params;
             const companyService = new CompanyService();
             const company = await companyService.delete(id)
-            return res.status(200).json(company)
+            return res.status(200).json({message: "Sucessfully deleted", company})
         } catch (err) {
             return ProcessError(res, err)
         }

@@ -27,12 +27,13 @@ export default class EmployeeService {
 
   public async findAll(): Promise<Employee[] | undefined> {
     const employees = await this.employeeRepository.findAll();
-
+    if (employees.length == 0) throw {status: errorStatus.bad_request, message: errorMessage.could_not_find}
     return employees;
   }
 
   public async update(id: string, data: ICreateEmployeeDTO): Promise<Employee | undefined> {
     const employee = await this.employeeRepository.findById(id);
+    if(!employee) throw { status: errorStatus.bad_request, message: errorMessage.id_not_found}
     const assign = Object.assign(employee, data);
     await this.employeeRepository.save(assign);
     const employeeUpdated = await this.employeeRepository.findById(id);
@@ -40,6 +41,8 @@ export default class EmployeeService {
   }
 
   public async delete(id: string): Promise<DeleteResult> {
-    return await this.employeeRepository.deleteById(id);
+    const employee = await this.employeeRepository.deleteById(id)
+    if(employee.affected == 0) throw { status: errorStatus.bad_request, message: errorMessage.id_not_found}
+    return employee
   }
 }
